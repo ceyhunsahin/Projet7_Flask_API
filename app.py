@@ -3,6 +3,9 @@ import pandas as pd
 import json
 import numpy as np
 import xgboost as xgb
+import os
+from flask import send_from_directory
+
 
 path = '/Users/ceyhun/OPENCLASSROOM/pythonProject_P7_Flask_API/Projet_File'
 
@@ -29,7 +32,12 @@ threshold = 0.9
 app = flask.Flask (__name__)
 app.config["DEBUG"] = True
 
-# definig home page
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='assets/favicon.ico.png')
+# defining home page
 @app.route ('/', methods=['GET'])
 def home():
     return "<h1>My first Flask API</h1><p>This site is a prototype API \
