@@ -3,8 +3,6 @@ import pandas as pd
 import json
 import numpy as np
 import xgboost as xgb
-import os
-from flask import send_from_directory
 
 
 
@@ -29,16 +27,11 @@ app = flask.Flask (__name__)
 app.config["DEBUG"] = True
 
 
-@app.route('/favicon.ico')
-def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'),
-                               'favicon.ico', mimetype='assets/favicon.ico')
 # defining home page
 @app.route ('/', methods=['GET'])
 def home():
     return "<h1>My first Flask API</h1><p>This site is a prototype API \
     for home risk project 7 of OpenClassRooms DataScientist training.</p>"
-
 
 # defining page for the results of a prediction via index
 @app.route ('/scores', methods=['GET'])
@@ -90,4 +83,4 @@ def predict():
 
 app.add_url_rule ('/scores', 'scores', predict)
 
-app.run (host='0.0.0.0',port=5002, debug=False)
+app.run (host='localhost',port=5002, debug=True)
