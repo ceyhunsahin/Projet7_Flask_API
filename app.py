@@ -96,4 +96,4 @@ def predict():
 
 app.add_url_rule ('/scores', 'scores', predict)
 
-app.run (port=5000, debug=False)
+app.run (port=8000, debug=False)
