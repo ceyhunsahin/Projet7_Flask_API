@@ -7,7 +7,9 @@ import os
 from flask import send_from_directory
 
 
-path = '/Users/ceyhun/OPENCLASSROOM/pythonProject_P7_Flask_API/Projet_File'
+path = 'https://raw.githubusercontent.com/ceyhunsahin/Projet_7_Dashboard/master/Projet_File/test_sample_data_home_risk.csv'
+path2 = 'https://raw.githubusercontent.com/ceyhunsahin/Projet_7_Dashboard/master/Projet_File/test_sample_data_home_risk_normalise.csv'
+
 
 
 
@@ -17,10 +19,10 @@ model.load_model("pipeline_housing.json")
 #model = pickle.load(open(path2+"pipeline_housing.pkl", "rb"))
 print (model)
 # Load data test sample
-df_test = pd.read_csv(path+'/test_sample_data_home_risk.csv', encoding='unicode_escape')
+df_test = pd.read_csv(path)
 
 df_test = df_test.loc[:, ~df_test.columns.str.match ('Unnamed')]
-df_test_normalize = pd.read_csv(path+'/test_sample_data_home_risk_normalisée.csv', encoding='unicode_escape', index_col=0)
+df_test_normalize = pd.read_csv(path2, index_col=0)
 
 # df_test_normalize['SK_ID_CURR'] = df_test['SK_ID_CURR']
 df_test = df_test.sort_index ()
