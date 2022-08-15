@@ -38,7 +38,7 @@ app.config["DEBUG"] = True
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
-                               'favicon.ico', mimetype='assets/favicon.ico.png')
+                               'favicon.ico', mimetype='assets/favicon.ico')
 # defining home page
 @app.route ('/', methods=['GET'])
 def home():
