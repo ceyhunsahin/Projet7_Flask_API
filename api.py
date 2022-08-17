@@ -42,7 +42,7 @@ def predict():
     # get the index from a request
     print (type (flask.request.args.get ('index')))
     if type (flask.request.args.get ('index')) is None:
-        data_index = '100030'
+        data_index = '100293'
     else:
         data_index = flask.request.args.get ('index')
     print ('data_index_api', data_index)
