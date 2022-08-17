@@ -11,8 +11,8 @@ model = xgb.XGBClassifier ()
 model.load_model("pipeline_housing.json")
 
 # Load data test sample
-path = 'https://raw.githubusercontent.com/ceyhunsahin/Projet_7_Dashboard/master/Projet_File/test_sample_data_home_risk.csv'
-path2 = 'https://raw.githubusercontent.com/ceyhunsahin/Projet_7_Dashboard/master/Projet_File/test_sample_data_home_risk_normalise.csv'
+path = 'Projet_File/test_sample_data_home_risk.csv'
+path2 = 'Projet_File/test_sample_data_home_risk_normalise.csv'
 
 df_test = pd.read_csv(path)[:1000]
 
@@ -85,6 +85,6 @@ def predict():
 
 
 app.add_url_rule ('/scores', 'scores', predict)
-
-app.run (host='localhost',port=5002, debug=True)
+if __name__ == '__main__':
+    app.run (host='localhost',port=5000, debug=True)
 
