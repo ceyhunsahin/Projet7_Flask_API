@@ -11,10 +11,13 @@ model = xgb.XGBClassifier ()
 model.load_model("pipeline_housing.json")
 
 # Load data test sample
-df_test = pd.read_csv('Projet_File/test_sample_data_home_risk.csv')[:1000]
+path = 'https://raw.githubusercontent.com/ceyhunsahin/Projet_7_Dashboard/master/Projet_File/test_sample_data_home_risk.csv'
+path2 = 'https://raw.githubusercontent.com/ceyhunsahin/Projet_7_Dashboard/master/Projet_File/test_sample_data_home_risk_normalise.csv'
+
+df_test = pd.read_csv(path)[:1000]
 
 df_test = df_test.loc[:, ~df_test.columns.str.match ('Unnamed')]
-df_test_normalize = pd.read_csv('Projet_File/test_sample_data_home_risk_normalise.csv', index_col=0)[:1000]
+df_test_normalize = pd.read_csv(path2, index_col=0)[:1000]
 
 # df_test_normalize['SK_ID_CURR'] = df_test['SK_ID_CURR']
 df_test = df_test.sort_index ()
