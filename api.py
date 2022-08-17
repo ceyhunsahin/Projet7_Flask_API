@@ -41,14 +41,12 @@ def home():
 @app.route ('/scores', methods=['GET'])
 def predict():
     # get the index from a request
-    print (type (flask.request.args.get ('index')))
+
     if type (flask.request.args.get ('index')) is None:
         data_index = '100111'
     else:
         data_index = flask.request.args.get ('index')
-    print ('data_index_api', data_index)
 
-    print ('df_test_normalize', df_test_normalize)
     # get inputs features from the data with index
     df_client = df_test_normalize[df_test_normalize.index == int (data_index)]
     data = df_client.to_json ()
