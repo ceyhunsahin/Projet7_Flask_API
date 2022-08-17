@@ -14,11 +14,12 @@ model.load_model("pipeline_housing.json")
 path = 'Projet_File/test_sample_data_home_risk.csv'
 path2 = 'Projet_File/test_sample_data_home_risk_normalise.csv'
 
-df_test = pd.read_csv(path)[:1000]
+df_test = pd.read_csv(path)
+df_test = df_test.sample(1200, random_state=42)
 
 df_test = df_test.loc[:, ~df_test.columns.str.match ('Unnamed')]
-df_test_normalize = pd.read_csv(path2, index_col=0)[:1000]
-
+df_test_normalize = pd.read_csv(path2, index_col=0)
+df_test_normalize = df_test_normalize.sample(1200, random_state=42)
 # df_test_normalize['SK_ID_CURR'] = df_test['SK_ID_CURR']
 df_test = df_test.sort_index ()
 
@@ -42,7 +43,7 @@ def predict():
     # get the index from a request
     print (type (flask.request.args.get ('index')))
     if type (flask.request.args.get ('index')) is None:
-        data_index = '100293'
+        data_index = '100111'
     else:
         data_index = flask.request.args.get ('index')
     print ('data_index_api', data_index)
