@@ -22,7 +22,7 @@ df_test_normalize = df_test_normalize.sample(1200, random_state=42)
 df_test = df_test.sort_index ()
 
 # Define the threshold of for application
-threshold = 0.9
+threshold = 0.5
 
 # defining flask pages
 app = flask.Flask (__name__)
