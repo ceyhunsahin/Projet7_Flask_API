@@ -21,9 +21,18 @@ First of all, it needs to open this [Flask API](https://oc-p7-home-risk-flaskapi
 [Dashboard](https://oc-dashboard-home-risk.herokuapp.com/). Flask API gets all needed parameters and returns a json format for using in Dashboard.
 So, without opening the Flask API, Dashboard won't handle the data for visualising.
 
-The API has been deployed on Heroku and are available at these adresses:
+The API has been deployed on Heroku and was available at these adresses. But beacuse of shutting down the free dynos and services 
+by heroku, dashboard and flask api was deployed to the docker hub. 
 
-Please note that they also have specific github repository for deployment on Heroku:
+For Docker, it can be type your shell:
+
+`docker container run -p 8000:8000 csahin2086/dash_app`
+
+and with another shell:
+
+`docker container run -p 5000:5000 csahin2086/flask_app`
+
+Please note that they also have had specific github repository for deployment on Heroku:
 
 Python librairies needed for the API are the following: python = 3.10 pandas=1.4.3 numpy=1.22.4 scikit-learn=1.1.2 
 plotly=5.10.0 shap=0.41.0 xgboost=1.6.1 pillow=9.2.0
